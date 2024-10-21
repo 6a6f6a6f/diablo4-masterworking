@@ -17,17 +17,21 @@ Onde \( n \) é o número de afixos.
 
 ## Cálculo de Probabilidades
 
-- **Para itens com 4 afixos**:
-  $$
-  P = \left( \frac{1}{4} \right)^3 = \frac{1}{64}, \quad E = \frac{1}{\frac{1}{64}} = 64
-  $$
-  Número médio de tentativas: 64 resets.
+**Para itens com 4 afixos**:
   
-- **Para itens com 5 afixos**:
-  $$
-  P = \left( \frac{1}{5} \right)^3 = \frac{1}{125}, \quad E = \frac{1}{\frac{1}{125}} = 125
-  $$
-  Número médio de tentativas: 125 resets.
+$$
+P = \left( \frac{1}{4} \right)^3 = \frac{1}{64}, \quad E = \frac{1}{\frac{1}{64}} = 64
+$$
+
+Número médio de tentativas: 64 resets.
+
+**Para itens com 5 afixos**:
+
+$$
+P = \left( \frac{1}{5} \right)^3 = \frac{1}{125}, \quad E = \frac{1}{\frac{1}{125}} = 125
+$$
+
+Número médio de tentativas: 125 resets.
 
 Sendo que o número de afixos permanece os mesmos entre qualquer uma das tentativas, podemos concluir que conseguir o mesmo afixo em todos os ranks tem exatamente a mesma probabilidade em qualquer um dos casos.
 
@@ -65,7 +69,7 @@ O custo de reset é constante em qualquer rank:
 
 Levando em conta as três tentativas (ranks 4/12, 8/12 e 12/12), o número esperado de resets para obter os upgrades no afixo desejado pode ser calculado com a seguinte decomposição:
 
-- A probabilidade \( P \) de que os três upgrades (ranks 4, 8, e 12) sejam aplicados ao mesmo afixo é dada por:
+A probabilidade \( P \) de que os três upgrades (ranks 4, 8, e 12) sejam aplicados ao mesmo afixo é dada por:
 
 $$
 P = \left( \frac{1}{n} \right)^3
@@ -73,7 +77,7 @@ $$
 
 Onde \( n \) é o número de afixos.
 
-- O número esperado de tentativas \( E \) para que os três upgrades caiam no mesmo afixo é o inverso da probabilidade \( P \), ou seja:
+O número esperado de tentativas \( E \) para que os três upgrades caiam no mesmo afixo é o inverso da probabilidade \( P \), ou seja:
 
 $$
 E = \frac{1}{P}
@@ -81,23 +85,27 @@ $$
 
 ## Cálculo de Tentativas por Número de Afixos
 
-- **Para itens com 4 afixos**:
-  $$
-  P = \left( \frac{1}{4} \right)^3 = \frac{1}{64}, \quad E = \frac{1}{\frac{1}{64}} = 64
-  $$
-  Portanto, o número médio de tentativas é **64 resets**.
+**Para itens com 4 afixos**:
 
-- **Para itens com 5 afixos**:
-  $$
-  P = \left( \frac{1}{5} \right)^3 = \frac{1}{125}, \quad E = \frac{1}{\frac{1}{125}} = 125
-  $$
-  Portanto, o número médio de tentativas é **~125 resets**.
+$$
+P = \left( \frac{1}{4} \right)^3 = \frac{1}{64}, \quad E = \frac{1}{\frac{1}{64}} = 64
+$$
+
+Portanto, o número médio de tentativas é **~64 resets**.
+
+**Para itens com 5 afixos**:
+
+$$
+P = \left( \frac{1}{5} \right)^3 = \frac{1}{125}, \quad E = \frac{1}{\frac{1}{125}} = 125
+$$
+
+Portanto, o número médio de tentativas é **~125 resets**.
 
 Esses cálculos mostram que, em média, você precisará de 64 tentativas para itens com 4 afixos e 125 tentativas para itens com 5 afixos para obter todos os upgrades no mesmo afixo.
 
 ## O Python Não Mente
 
-Para validar os cálculos, podemos simular o processo de conseguir o item perfeito. O (`simulator.py`)[./simulator.py] é um script Python que simula o processo de *masterworking* de um item ancestral. O script gera um item com 4 ou 5 afixos e simula os resets até que todos os upgrades estejam no afixo esperado:
+Para validar os cálculos, podemos simular o processo de conseguir o item perfeito. O [`simulator.py`](./simulator.py) é um script Python que simula o processo de *masterworking* de um item ancestral. O script gera um item com 4 ou 5 afixos e simula os resets até que todos os upgrades estejam no afixo esperado:
 
 ```bash
 $ python3 simulator.py
